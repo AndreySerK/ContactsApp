@@ -1,5 +1,5 @@
 ## Contacts manager
-This is the small console training app
+This is the small console training app (Java 19+Spring)
 
 Available commands for user:
 
@@ -16,8 +16,8 @@ git clone https://github.com/AndreySerK/ContactsApp
 
 cd */ContactsApp
 
-mvn package    # To create jar file
+mvn clean package          # To create jar file
 
-java -jar */target/contacts-1.0-SNAPSHOT.jar – spring.profiles.active=default    # To run this service with deafult profile
+java -jar –Dspring.profiles.active=default */target/contacts-1.0-SNAPSHOT-jar-with-dependencies.jar   # To run this service with default profile
 
-java -jar */target/contacts-1.0-SNAPSHOT.jar – spring.profiles.active=init     # To run this service with init profile (contacts will be loaded form init file)
+java -jar –Dspring.profiles.active=init */target/contacts-1.0-SNAPSHOT-jar-with-dependencies.jar    # To run this service with init profile (contacts will be loaded from init file)
