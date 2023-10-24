@@ -10,8 +10,8 @@ import java.nio.file.StandardOpenOption;
 import java.util.List;
 
 @Component
-@Profile("init")
-@PropertySource("classpath:application-init.properties")
+@Profile("default")
+@PropertySource("classpath:application-default.properties")
 public class DefaultSaver implements Saver{
 
     @Value("${save.path}")
@@ -22,7 +22,7 @@ public class DefaultSaver implements Saver{
         contactList.forEach(c -> {
             try {
                 String strToWright = "\n" + c.getFullName() + ";" + c.getPhoneNumber() + ";" + c.getEmail();
-                Files.write(Path.of(savePath), strToWright.getBytes(), StandardOpenOption.APPEND);
+                Files.write(Path.of(savePath), strToWright.getBytes(), StandardOpenOption.TRUNCATE_EXISTING);
             } catch (Exception e) {
                 e.printStackTrace();
             }

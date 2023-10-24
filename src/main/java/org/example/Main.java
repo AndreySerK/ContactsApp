@@ -7,7 +7,6 @@ import java.util.Scanner;
 
 public class Main {
 
-
     public static void main(String[] args) {
         ApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
         ContactManager manager = context.getBean(ContactManager.class);
@@ -38,7 +37,7 @@ public class Main {
         System.out.println("Input command and press ENTER...");
         Scanner scanner = new Scanner(System.in);
         switch (scanner.nextLine()) {
-            case "SHOW" -> manager.getContactList();
+            case "SHOW" -> manager.printContactList();
             case "ADD" -> manager.addContactToList(scanner);
             case "REMOVE" -> manager.deleteContactsByEmail(scanner);
             case "SAVE" -> manager.saveContactsToFile();
